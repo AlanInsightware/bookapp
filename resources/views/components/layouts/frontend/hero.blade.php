@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ isset($title) ? $title . ' - ' . config('app.name') : config('app.name') }}</title>
-        
+
         @if(isset($description))
             <meta name="description" content="{{ $description }}">
         @endif
@@ -27,10 +27,10 @@
         <!-- Additional Head Content -->
         {{ $head ?? '' }}
     </head>
-    <body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen antialiased">
+    <body class="bg-slate-50 text-slate-900 dark:text-slate-100 min-h-screen antialiased">
         <!-- Navigation -->
         <livewire:frontend.navigation />
-        
+
         <!-- Hero/Landing Content -->
         <main class="flex items-center justify-center w-full p-6 lg:p-8 min-h-[calc(100vh-64px)] transition-opacity opacity-100 duration-750 starting:opacity-0">
             {{ $slot }}

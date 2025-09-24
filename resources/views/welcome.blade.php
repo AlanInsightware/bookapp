@@ -1,168 +1,92 @@
-<x-layouts.frontend.hero
+<x-layouts.frontend.hero 
     title="BookStore - Your Literary Journey Starts Here"
     description="Discover amazing books across all genres. From bestsellers to hidden gems, find your next great read."
 >
-    {{-- Hero Section --}}
-    <div class="w-full max-w-7xl">
-        <section class="bg-gradient-to-r from-primary to-primary-dark text-white rounded-2xl p-8 lg:p-16 mb-16">
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="flex-1 text-center lg:text-left">
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                        Find Your Next
-                        <span class="text-secondary">Great Read</span>
-                    </h1>
-                    <p class="text-xl lg:text-2xl mb-8 text-slate-100">
-                        Discover thousands of books across all genres. From bestselling novels to academic texts, we have something for every reader.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <flux:button href="{{ route('books.index') }}" class="!bg-secondary !text-primary-dark hover:!bg-secondary-light !px-8 !py-4 !text-lg">
-                            Browse Books
-                        </flux:button>
-                        <flux:button variant="outline" class="!border-white !text-white hover:!bg-white hover:!text-primary !px-8 !py-4 !text-lg">
-                            Best Sellers
-                        </flux:button>
-                    </div>
-                </div>
-                <div class="flex-1 relative">
-                    <div class="relative w-full max-w-md mx-auto">
-                        <div class="absolute inset-0 bg-secondary opacity-20 rounded-2xl transform rotate-6"></div>
-                        <div class="relative bg-white rounded-2xl p-8 shadow-2xl">
-                            <div class="flex items-center justify-center h-64 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg mb-4">
-                                <flux:icon.book-open-text class="size-20 text-primary" />
-                            </div>
-                            <h3 class="text-xl font-semibold text-primary mb-2">Featured Book</h3>
-                            <p class="text-slate-600">Discover our book of the month and join thousands of readers worldwide.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {{-- Featured Books Section --}}
-        <section class="mb-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-                    Featured Books
-                </h2>
-                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                    Handpicked selections from our curators, featuring the latest releases and timeless classics.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                @for($i = 1; $i <= 4; $i++)
-                    <div class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow">
-                        <div class="aspect-[3/4] bg-gradient-to-br from-primary/10 to-secondary/20 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-                            <flux:icon.book-open-text class="size-16 text-primary opacity-40" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                        </div>
-                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
-                            The Great Adventure {{ $i }}
-                        </h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-2">by Author Name</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-lg font-bold text-primary">$24.99</span>
-                            <flux:button size="sm" class="!bg-primary hover:!bg-primary-dark !text-white">
-                                Add to Cart
+    <div class="w-full">
+        {{-- Hero Section --}}
+        <section id="hero" class="min-h-screen flex items-center justify-center pb-16 md:pt-16 md:pb-16 bg-primary-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-4xl sm:text-5xl font-bold leading-tight text-secondary-light">
+                            Discover Your Next Great Literary Adventure
+                        </h1>
+                        <p class="text-xl text-secondary mt-6 mb-8">
+                            From timeless classics to contemporary masterpieces, find books that inspire, educate, and entertain.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <flux:button href="{{ route('books.index') }}" 
+                                        class="!bg-secondary !text-primary-dark hover:!bg-secondary-light !px-8 !py-4 !text-lg">
+                                Browse Books
                             </flux:button>
                         </div>
                     </div>
-                @endfor
-            </div>
-
-            <div class="text-center mt-8">
-                <flux:button href="{{ route('books.index') }}" variant="outline" class="!border-primary !text-primary hover:!bg-primary hover:!text-white">
-                    View All Books
-                </flux:button>
+                    <div class="hidden lg:flex justify-center items-center">
+                        <div class="relative w-80 h-96 bg-secondary/20 rounded-lg flex items-center justify-center">
+                            <flux:icon.book-open-text class="size-32 text-secondary" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        {{-- Categories Section --}}
-        <section class="mb-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-                    Browse by Category
-                </h2>
-                <p class="text-xl text-slate-600 dark:text-slate-400">
-                    Find books in your favorite genres
-                </p>
-            </div>
-
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                @php
-                    $categories = [
-                        ['name' => 'Fiction', 'count' => '1,240', 'color' => 'from-blue-500 to-blue-600'],
-                        ['name' => 'Non-Fiction', 'count' => '890', 'color' => 'from-green-500 to-green-600'],
-                        ['name' => 'Biography', 'count' => '456', 'color' => 'from-purple-500 to-purple-600'],
-                        ['name' => 'Science', 'count' => '623', 'color' => 'from-red-500 to-red-600'],
-                        ['name' => 'History', 'count' => '745', 'color' => 'from-yellow-500 to-yellow-600'],
-                        ['name' => 'Romance', 'count' => '934', 'color' => 'from-pink-500 to-pink-600'],
-                        ['name' => 'Mystery', 'count' => '567', 'color' => 'from-indigo-500 to-indigo-600'],
-                        ['name' => 'Fantasy', 'count' => '823', 'color' => 'from-emerald-500 to-emerald-600'],
-                    ]
-                @endphp
-
-                @foreach($categories as $category)
-                    <a href="#" class="block group">
-                        <div class="bg-gradient-to-br {{ $category['color'] }} rounded-xl p-6 text-white text-center group-hover:scale-105 transition-transform">
-                            <h3 class="text-lg font-semibold mb-2">{{ $category['name'] }}</h3>
-                            <p class="text-sm opacity-90">{{ $category['count'] }} books</p>
+        {{-- Featured Product Section --}}
+        <section class="relative p-7" id="product">
+            <div class="bg-white flex flex-col md:flex-row hover:shadow-md rounded-md">
+                {{-- Left side with book cover --}}
+                <div class="w-full md:w-1/2 bg-primary-dark md:rounded-l-md rounded-t-md flex justify-center items-center py-12 transition delay-150 duration-300 ease-in-out hover:scale-110">
+                    <div class="relative w-64 shadow-xl">
+                        <div class="aspect-[3/4] bg-gradient-to-br from-secondary/30 to-secondary/50 rounded-lg flex items-center justify-center">
+                            <flux:icon.book-open-text class="size-24 text-white" />
                         </div>
-                    </a>
-                @endforeach
+                    </div>
+                </div>
+
+                {{-- Right side with book info --}}
+                <div class="w-full md:w-1/2 justify-center p-7">
+                    <div class="text-primary text-lg font-medium mb-4">NOW AVAILABLE</div>
+                    
+                    <h2 class="text-5xl font-bold text-primary mb-6">Featured Book</h2>
+                    
+                    <h3 class="text-2xl font-medium text-primary-dark mb-4">A Journey Through Time</h3>
+                    
+                    <div class="text-primary-dark mb-8">
+                        <p>Discover our carefully curated selection of books that have captivated readers worldwide. This month's featured selection offers an extraordinary journey through compelling narratives and unforgettable characters.</p>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <flux:button href="{{ route('books.index') }}"
+                                    class="!bg-primary-dark !text-white hover:!bg-secondary">
+                            Read More
+                        </flux:button>
+                        <flux:button variant="outline"
+                                    class="!border-primary !text-primary hover:!bg-primary hover:!text-white">
+                            $24.99 - Add to Cart
+                        </flux:button>
+                    </div>
+                </div>
             </div>
         </section>
 
         {{-- About Section --}}
-        <section class="mb-16">
-            <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 lg:p-16">
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="flex-1">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-                            Why Choose BookStore?
-                        </h2>
-                        <div class="space-y-4 text-lg text-slate-600 dark:text-slate-400">
-                            <div class="flex items-start gap-3">
-                                <div class="size-6 bg-primary rounded-full flex items-center justify-center mt-1 shrink-0">
-                                    <svg class="size-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p><strong class="text-slate-900 dark:text-white">Curated Selection:</strong> Every book is carefully selected by our team of literary experts.</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="size-6 bg-primary rounded-full flex items-center justify-center mt-1 shrink-0">
-                                    <svg class="size-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p><strong class="text-slate-900 dark:text-white">Fast Delivery:</strong> Free shipping on orders over $35, delivered within 2-3 business days.</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="size-6 bg-primary rounded-full flex items-center justify-center mt-1 shrink-0">
-                                    <svg class="size-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p><strong class="text-slate-900 dark:text-white">Community:</strong> Join our book club with over 50,000 active readers worldwide.</p>
-                            </div>
-                        </div>
-                        <div class="mt-8">
-                            <flux:button href="#" variant="filled" class="!bg-primary hover:!bg-primary-dark !text-white">
-                                Learn More About Us
-                            </flux:button>
-                        </div>
+        <section class="relative p-7" id="about">
+            <div class="flex flex-col md:flex-row bg-white hover:shadow-md rounded-lg">
+                <div class="w-full md:w-3/4 justify-center p-7">
+                    <div class="text-slate-600 dark:text-slate-300 text-lg font-medium mb-4">ABOUT US</div>
+                    <h2 class="text-5xl font-bold text-slate-800 mb-6 dark:text-secondary">Your Trusted Book Companion</h2>
+                    <h3 class="text-2xl font-medium text-primary mb-4">Connecting Readers with Great Stories Since 2020</h3>
+                    <div class="text-slate-700 mb-8">
+                        <p>At BookStore, we believe that every book has the power to transport, transform, and inspire. Our mission is to connect passionate readers with exceptional literature, from contemporary bestsellers to timeless classics.</p>
+                        <p class="mt-4">With over 50,000 titles in our collection and a community of book lovers spanning the globe, we're more than just a bookstore – we're your literary companion on every reading adventure.</p>
                     </div>
-                    <div class="flex-1">
-                        <div class="relative">
-                            <div class="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 h-80 flex items-center justify-center">
-                                <div class="text-center">
-                                    <div class="size-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <flux:icon.book-open-text class="size-12 text-white" />
-                                    </div>
-                                    <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">50K+ Books</h3>
-                                    <p class="text-slate-600 dark:text-slate-400">In our collection</p>
-                                </div>
+                </div>
+                <div class="w-full md:w-1/4 flex justify-center items-center py-12 bg-primary-dark rounded-b-lg md:rounded-none md:rounded-r-lg order-first md:order-last">
+                    <div class="relative w-64 shadow-xl">
+                        <div class="aspect-square bg-gradient-to-br from-secondary/30 to-secondary/50 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <flux:icon.book-open-text class="size-16 mx-auto mb-4" />
+                                <h4 class="text-xl font-semibold">50K+</h4>
+                                <p class="text-sm">Books Available</p>
                             </div>
                         </div>
                     </div>
@@ -170,27 +94,113 @@
             </div>
         </section>
 
-        {{-- Newsletter Section --}}
-        <section class="mb-16">
-            <div class="bg-primary rounded-2xl p-8 lg:p-16 text-center text-white">
-                <h2 class="text-3xl lg:text-4xl font-bold mb-4">
-                    Stay Updated
-                </h2>
-                <p class="text-xl text-slate-100 mb-8 max-w-2xl mx-auto">
-                    Subscribe to our newsletter and be the first to know about new releases, special offers, and book recommendations.
-                </p>
-                <div class="max-w-md mx-auto">
-                    <div class="flex gap-4">
-                        <input type="email"
-                               placeholder="Enter your email"
-                               class="flex-1 px-4 py-3 rounded-lg text-slate-900 border-none focus:ring-2 focus:ring-secondary">
-                        <flux:button class="!bg-secondary !text-primary-dark hover:!bg-secondary-light !px-6">
-                            Subscribe
-                        </flux:button>
+        {{-- Contact Section --}}
+        <section class="relative p-7" id="contact">
+            <div class="flex flex-col md:flex-row gap-x-4 bg-white rounded-md hover:shadow-xs">
+                {{-- Contact Form --}}
+                <div class="md:w-3/5 p-8 border border-primary bg-primary rounded-l-lg">
+                    <h2 class="text-white text-3xl font-bold mb-8">Contact Us</h2>
+
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {{-- First Name --}}
+                            <div>
+                                <input type="text" id="firstName" name="firstName" placeholder="First Name"
+                                       class="w-full px-4 py-3 rounded-sm bg-white border-0 focus:ring-2 focus:ring-secondary">
+                            </div>
+
+                            {{-- Last Name --}}
+                            <div>
+                                <input type="text" id="lastName" name="lastName" placeholder="Last Name"
+                                       class="w-full px-4 py-3 rounded-sm bg-white border-0 focus:ring-2 focus:ring-secondary">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {{-- Email Address --}}
+                            <div>
+                                <input type="email" id="email" name="email" placeholder="Email Address"
+                                       class="w-full px-4 py-3 rounded-sm bg-white border-0 focus:ring-2 focus:ring-secondary">
+                            </div>
+
+                            {{-- Organization --}}
+                            <div>
+                                <input type="text" id="organization" name="organization" placeholder="Name Of Your Organization"
+                                       class="w-full px-4 py-3 rounded-sm bg-white border-0 focus:ring-2 focus:ring-secondary">
+                            </div>
+                        </div>
+
+                        {{-- Interest Type Dropdown --}}
+                        <div>
+                            <select id="interestType" name="interestType"
+                                    class="w-full px-4 py-3 rounded-sm bg-white border-0 focus:ring-2 focus:ring-secondary appearance-none">
+                                <option value="">I am Interested In</option>
+                                <option value="General Enquiry">General Enquiry</option>
+                                <option value="Book Recommendations">Book Recommendations</option>
+                                <option value="Bulk Orders">Bulk Orders</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        {{-- Message --}}
+                        <div>
+                            <textarea id="message" name="message" placeholder="Message" rows="6"
+                                      class="w-full px-4 py-3 rounded-sm bg-white border-0 focus:ring-2 focus:ring-secondary"></textarea>
+                        </div>
+
+                        {{-- Submit --}}
+                        <div class="flex justify-end">
+                            <flux:button type="submit"
+                                        class="!bg-secondary hover:!bg-secondary-light !text-primary-dark !py-3 !px-8 !font-bold !uppercase">
+                                Send Message
+                            </flux:button>
+                        </div>
+                    </form>
+                </div>
+
+                {{-- Contact Info Section --}}
+                <div class="w-full md:w-2/5 p-5">
+                    <div class="bg-secondary p-8 mb-4 hover:bg-primary transition delay-150 duration-300 ease-in-out rounded-md hover:-translate-y-1">
+                        <h3 class="text-white text-xl font-semibold mb-4">Get in Touch</h3>
+                        <div class="space-y-3 text-white">
+                            <p>
+                                <strong>Email:</strong><br>
+                                <a href="mailto:hello@bookstore.com" class="hover:underline">
+                                    hello@bookstore.com
+                                </a>
+                            </p>
+                            <p>
+                                <strong>Phone:</strong><br>
+                                <a href="tel:+1234567890" class="hover:underline">
+                                    +1 (234) 567-8900
+                                </a>
+                            </p>
+                            <p>
+                                <strong>Address:</strong><br>
+                                123 Literary Lane<br>
+                                Book City, BC 12345
+                            </p>
+                        </div>
                     </div>
-                    <p class="text-sm text-slate-200 mt-4">
-                        We respect your privacy. Unsubscribe at any time.
-                    </p>
+                    
+                    <div class="bg-tertiary p-8 hover:bg-primary transition delay-150 duration-300 ease-in-out rounded-md hover:-translate-y-1">
+                        <h3 class="text-white text-xl font-semibold mb-4">Store Hours</h3>
+                        <div class="space-y-2 text-white text-sm">
+                            <div class="flex justify-between">
+                                <span>Monday - Friday</span>
+                                <span>9:00 AM - 8:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Saturday</span>
+                                <span>10:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Sunday</span>
+                                <span>12:00 PM - 5:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
