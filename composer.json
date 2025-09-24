@@ -11,6 +11,7 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/flux": "^2.1.1",
+        "livewire/flux-pro": "^2.4",
         "livewire/volt": "^1.7.0",
         "opcodesio/log-viewer": "^3.19",
         "owen-it/laravel-auditing": "^14.0",
@@ -18,6 +19,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "laravel/boost": "^1.2",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.18",
         "laravel/sail": "^1.41",
@@ -79,5 +81,11 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "flux-pro": {
+            "type": "composer",
+            "url": "https://composer.fluxui.dev"
+        }
+    }
 }

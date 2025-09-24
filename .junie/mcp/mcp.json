@@ -1,0 +1,20 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "/Users/alanvalayutham/Library/Application Support/Herd/bin/php84",
+            "args": [
+                "/Users/alanvalayutham/Code/bookapp/artisan",
+                "boost:mcp"
+            ]
+        },
+        "herd": {
+            "command": "/Users/alanvalayutham/Library/Application Support/Herd/bin/php84",
+            "args": [
+                "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
+            ],
+            "env": {
+                "SITE_PATH": "/Users/alanvalayutham/Code/bookapp"
+            }
+        }
+    }
+}

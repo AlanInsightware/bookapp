@@ -9,6 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+// Frontend book routes
+Route::get('/books', function () {
+    return view('books.index');
+})->name('books.index');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
