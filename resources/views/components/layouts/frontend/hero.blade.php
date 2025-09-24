@@ -38,5 +38,21 @@
 
         <!-- Additional Scripts -->
         {{ $scripts ?? '' }}
+        <flux:footer class="bg-primary-dark dark:bg-primary-dark">
+            <div class="justify-center flex py-3">
+                @include('main_logo')
+            </div>
+            <div>
+                <div class="text-center">
+                    <h2 class="text-white text-3xl font-bold mb-8">{{ config('app.name') }}</h2>
+                </div>
+                <div class="text-center gap-x-3 space-x-6 text-gray-400">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </flux:footer>
     </body>
 </html>

@@ -1,4 +1,4 @@
-<x-layouts.frontend.hero 
+<x-layouts.frontend.hero
     title="BookStore - Your Literary Journey Starts Here"
     description="Discover amazing books across all genres. From bestsellers to hidden gems, find your next great read."
 >
@@ -8,23 +8,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <div class="text-center lg:text-left">
-                        <h1 class="text-4xl sm:text-5xl font-bold leading-tight text-secondary-light">
-                            Discover Your Next Great Literary Adventure
-                        </h1>
-                        <p class="text-xl text-secondary mt-6 mb-8">
-                            From timeless classics to contemporary masterpieces, find books that inspire, educate, and entertain.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <flux:button href="{{ route('books.index') }}" 
-                                        class="!bg-secondary !text-primary-dark hover:!bg-secondary-light !px-8 !py-4 !text-lg">
-                                Browse Books
-                            </flux:button>
-                        </div>
-                    </div>
-                    <div class="hidden lg:flex justify-center items-center">
-                        <div class="relative w-80 h-96 bg-secondary/20 rounded-lg flex items-center justify-center">
-                            <flux:icon.book-open-text class="size-32 text-secondary" />
-                        </div>
+                        <h1 class="text-4xl sm:text-5xl font-bold leading-tight text-secondary-light">Embark on a Journey of Silence</h1>
                     </div>
                 </div>
             </div>
@@ -45,13 +29,13 @@
                 {{-- Right side with book info --}}
                 <div class="w-full md:w-1/2 justify-center p-7">
                     <div class="text-primary text-lg font-medium mb-4">NOW AVAILABLE</div>
-                    
-                    <h2 class="text-5xl font-bold text-primary mb-6">Featured Book</h2>
-                    
-                    <h3 class="text-2xl font-medium text-primary-dark mb-4">A Journey Through Time</h3>
-                    
+
+                    <h2 class="text-5xl font-bold text-primary mb-6">Silent Energy</h2>
+
+                    <h3 class="text-2xl font-medium text-primary-dark mb-4">A Journey of Silence</h3>
+
                     <div class="text-primary-dark mb-8">
-                        <p>Discover our carefully curated selection of books that have captivated readers worldwide. This month's featured selection offers an extraordinary journey through compelling narratives and unforgettable characters.</p>
+                        <p>This profound book, Silent Energy, talks to your unconscious mind even though you may consciously resist its Truth. It shares insights into how you can move from a state of dis-space-ment to one that is aligned to the frequency of the Silent Energy in which you thrive in your rightful space in harmony with the natural ordered system, living in the now with Love and Compassion in the simultaneous movement of life and death.</p>
                     </div>
 
                     <div class="flex space-x-4">
@@ -59,9 +43,9 @@
                                     class="!bg-primary-dark !text-white hover:!bg-secondary">
                             Read More
                         </flux:button>
-                        <flux:button variant="outline"
-                                    class="!border-primary !text-primary hover:!bg-primary hover:!text-white">
-                            $24.99 - Add to Cart
+                        <flux:button
+                            class="!bg-primary-dark !text-white hover:!bg-secondary">
+                            Buy Now
                         </flux:button>
                     </div>
                 </div>
@@ -73,11 +57,12 @@
             <div class="flex flex-col md:flex-row bg-white hover:shadow-md rounded-lg">
                 <div class="w-full md:w-3/4 justify-center p-7">
                     <div class="text-slate-600 dark:text-slate-300 text-lg font-medium mb-4">ABOUT US</div>
-                    <h2 class="text-5xl font-bold text-slate-800 mb-6 dark:text-secondary">Your Trusted Book Companion</h2>
-                    <h3 class="text-2xl font-medium text-primary mb-4">Connecting Readers with Great Stories Since 2020</h3>
+                    <h2 class="text-5xl font-bold text-slate-800 mb-6 dark:text-secondary">CMervin Govender</h2>
+{{--                    <h3 class="text-2xl font-medium text-primary mb-4">Connecting Readers with Great Stories Since 2020</h3>--}}
                     <div class="text-slate-700 mb-8">
-                        <p>At BookStore, we believe that every book has the power to transport, transform, and inspire. Our mission is to connect passionate readers with exceptional literature, from contemporary bestsellers to timeless classics.</p>
-                        <p class="mt-4">With over 50,000 titles in our collection and a community of book lovers spanning the globe, we're more than just a bookstore – we're your literary companion on every reading adventure.</p>
+                        <p>My life and work center on what I call the Silent Energy, and are underpinned by my belief that I Am All Humanity and All Humanity is Me.
+                            My work is inspired by a profound life-changing experience which I had at about 49 years of age. It was not really an experience but an immersion with the Silent Energy. </p>
+                        <p class="mt-4">This Silent Energy is a No-thing-ness because it is everything. It is formless, nameless, timeless, infinite, pure, uncontaminated Energy. This Energy is the source of everything in the natural system.</p>
                     </div>
                 </div>
                 <div class="w-full md:w-1/4 flex justify-center items-center py-12 bg-primary-dark rounded-b-lg md:rounded-none md:rounded-r-lg order-first md:order-last">
@@ -183,7 +168,7 @@
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="bg-tertiary p-8 hover:bg-primary transition delay-150 duration-300 ease-in-out rounded-md hover:-translate-y-1">
                         <h3 class="text-white text-xl font-semibold mb-4">Store Hours</h3>
                         <div class="space-y-2 text-white text-sm">
